@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 100% 97%;
+    --foreground: 20 43% 25%;
+
+    --card: 30 50% 98%;
+    --card-foreground: 20 43% 25%;
+
+    --popover: 30 100% 97%;
+    --popover-foreground: 20 43% 25%;
+
+    --primary: 20 43% 25%;
+    --primary-foreground: 30 100% 97%;
+
+    --secondary: 350 60% 87%;
+    --secondary-foreground: 20 43% 25%;
+
+    --muted: 30 30% 92%;
+    --muted-foreground: 20 15% 50%;
+
+    --accent: 27 55% 65%;
+    --accent-foreground: 30 100% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 30% 88%;
+    --input: 30 30% 88%;
+    --ring: 20 43% 25%;
+
+    --radius: 1rem;
+
+    --bakery-cream: 30 100% 95%;
+    --bakery-brown: 20 43% 25%;
+    --bakery-pink: 350 60% 87%;
+    --bakery-caramel: 27 55% 65%;
+    --bakery-gold: 38 70% 55%;
+    --bakery-warm: 25 80% 92%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --shadow-soft: 0 4px 20px -4px hsl(20 43% 25% / 0.08);
+    --shadow-warm: 0 8px 30px -8px hsl(27 55% 65% / 0.2);
+    --shadow-card: 0 2px 16px -2px hsl(20 43% 25% / 0.06);
+    --shadow-hover: 0 12px 40px -12px hsl(27 55% 65% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 py-16 md:px-8 lg:px-16 lg:py-24;
+  }
+
+  .bakery-container {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--bakery-brown)), hsl(var(--bakery-caramel)));
+  }
+
+  .card-bakery {
+    @apply rounded-2xl bg-card overflow-hidden transition-all duration-500;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-bakery:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-8 py-3 font-medium transition-all duration-300 bg-primary text-primary-foreground;
+    font-family: var(--font-body);
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-warm);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline-bakery {
+    @apply inline-flex items-center justify-center rounded-full px-8 py-3 font-medium transition-all duration-300 border-2 border-primary text-primary;
+    font-family: var(--font-body);
+  }
+
+  .btn-outline-bakery:hover {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .image-zoom {
+    @apply overflow-hidden rounded-2xl;
+  }
+
+  .image-zoom img {
+    @apply transition-transform duration-700;
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.08);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
